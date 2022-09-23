@@ -1,7 +1,9 @@
 package beup.cc.receiver;
 
-public interface Receiver {
+import beup.cc.SyncContext;
 
+public interface Receiver extends Cloneable, Runnable{
 
+    void setContext(SyncContext syncContext);
 
 }
