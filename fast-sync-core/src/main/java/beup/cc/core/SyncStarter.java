@@ -1,7 +1,6 @@
-package beup.cc;
+package beup.cc.core;
 
-import beup.cc.config.SyncConfig;
-import beup.cc.receiver.Receiver;
+import beup.cc.core.config.SyncConfig;
 
 public class SyncStarter {
 

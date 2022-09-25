@@ -1,4 +1,6 @@
-package beup.cc.config;
+package beup.cc.core.config;
 
 public class ReceiverConfig {
+
+
 }
