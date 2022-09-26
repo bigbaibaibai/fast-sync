@@ -1,7 +1,6 @@
 package beup.cc.core;
 
 import beup.cc.core.config.SyncConfig;
-import beup.cc.core.monitor.Monitor;
 import beup.cc.core.receiver.Receiver;
 import beup.cc.core.transmitter.Transmitter;
 import beup.cc.core.writer.Writer;

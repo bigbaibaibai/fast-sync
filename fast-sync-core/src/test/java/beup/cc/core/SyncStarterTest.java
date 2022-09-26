@@ -6,7 +6,7 @@ import beup.cc.core.receiver.TestTimeReceiver;
 import beup.cc.core.transformer.SimpleTransformer;
 import beup.cc.core.transmitter.SimpleTransmitter;
 import beup.cc.core.transmitter.Transmitter;
-import beup.cc.core.writer.TestPrintWriter;
+import beup.cc.core.writer.PrintWriter;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -27,7 +27,7 @@ public class SyncStarterTest {
         syncContext.addReceiver(buildTestTimeReceiver(syncContext));
 
         //注册写入器
-        final TestPrintWriter printWriter = new TestPrintWriter("TestPrintWriter");
+        final PrintWriter printWriter = new PrintWriter("TestPrintWriter");
         syncContext.addWriter(printWriter);
 
         //注册一个传输流程
@@ -37,10 +37,10 @@ public class SyncStarterTest {
 
     }
 
-    private Transmitter buildSimpleTransmitter(TestPrintWriter printWriter) {
+    private Transmitter buildSimpleTransmitter(PrintWriter printWriter) {
         Map<String, String> fieldMap = new HashMap<>();
         fieldMap.put("name", "name");
-        fieldMap.put("age", "age");
+        fieldMap.put("age", "age1");
         fieldMap.put("time", "time");
 
         FieldFilter filter = new FieldFilter(fieldMap);

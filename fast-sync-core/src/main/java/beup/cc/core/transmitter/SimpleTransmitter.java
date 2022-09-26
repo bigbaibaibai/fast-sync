@@ -16,11 +16,11 @@ public class SimpleTransmitter implements Transmitter {
 
     private final Writer writer;
 
-    public SimpleTransmitter(String id, String match, Transformer transformer, Writer writer) {
+    public SimpleTransmitter(String id, String matchKey, Transformer transformer, Writer writer) {
         this.transformer = transformer;
         this.writer = writer;
         this.id = id;
-        this.matchPattern= Pattern.compile(match);
+        this.matchPattern= Pattern.compile(matchKey);
     }
 
     @Override
@@ -39,11 +39,6 @@ public class SimpleTransmitter implements Transmitter {
     @Override
     public String getId() {
         return this.id;
-    }
-
-    @Override
-    public Writer getWriter() {
-        return this.writer;
     }
 
 }

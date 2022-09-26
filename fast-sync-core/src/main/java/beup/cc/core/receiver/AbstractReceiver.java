@@ -22,7 +22,6 @@ public abstract class AbstractReceiver implements Receiver {
 
     @Override
     public void start() {
-        System.out.println(id + " Receiver启动");
         isRunning = true;
         while (isRunning()) {
             final Record record = allowReceive();
@@ -39,7 +38,6 @@ public abstract class AbstractReceiver implements Receiver {
     @Override
     public void stop() {
         isRunning = false;
-        System.out.println(this.getId() + " Receiver 接受消息完毕");
     }
 
     @Override
