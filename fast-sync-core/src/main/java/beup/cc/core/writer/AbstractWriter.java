@@ -1,15 +1,25 @@
 package beup.cc.core.writer;
 
 import beup.cc.core.Record;
+import beup.cc.core.SyncContext;
+import com.alibaba.fastjson.JSONObject;
 
 public abstract class AbstractWriter implements Writer {
+
+    private static final String ID_PARAM = "id";
 
     private boolean isRunning;
 
     private final String id;
 
-    public AbstractWriter(String id) {
-        this.id = id;
+    private final SyncContext syncContext;
+
+    protected final JSONObject param;
+
+    public AbstractWriter(JSONObject param, SyncContext syncContext) {
+        this.param = param;
+        this.id = param.getString(ID_PARAM);
+        this.syncContext = syncContext;
     }
 
     @Override
@@ -28,19 +38,29 @@ public abstract class AbstractWriter implements Writer {
     }
 
     @Override
-    public void write(Record record) {
+    public void write(Record record, JSONObject param) {
         if (isRunning()) {
-            doWrite(record);
+            doWrite(record, param);
         } else {
             //todo 报错，写入器被关闭，却仍有数据需要往里写入，正确流程 ，先移除Transmitter，再关闭Writer
         }
     }
 
-    protected abstract void doWrite(Record record);
-
     @Override
     public String getId() {
         return id;
     }
+
+    @Override
+    public SyncContext getSyncContext() {
+        return syncContext;
+    }
+
+    @Override
+    public JSONObject getParam() {
+        return param;
+    }
+
+    protected abstract void doWrite(Record record, JSONObject param);
 
 }

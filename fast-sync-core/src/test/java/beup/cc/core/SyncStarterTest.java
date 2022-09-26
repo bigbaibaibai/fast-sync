@@ -2,9 +2,9 @@ package beup.cc.core;
 
 import beup.cc.core.filter.FieldFilter;
 import beup.cc.core.receiver.Receiver;
-import beup.cc.core.receiver.TestTimeReceiver;
+import beup.cc.core.receiver.TimeReceiver;
 import beup.cc.core.transformer.SimpleTransformer;
-import beup.cc.core.transmitter.SimpleTransmitter;
+import beup.cc.core.transmitter.DefaultTransmitter;
 import beup.cc.core.transmitter.Transmitter;
 import beup.cc.core.writer.PrintWriter;
 
@@ -45,11 +45,11 @@ public class SyncStarterTest {
 
         FieldFilter filter = new FieldFilter(fieldMap);
         SimpleTransformer simpleTransformer = new SimpleTransformer(Collections.singletonList(filter));
-        return new SimpleTransmitter("SimpleTransmitter", "test", simpleTransformer, printWriter);
+        return new DefaultTransmitter("SimpleTransmitter", "test", simpleTransformer, printWriter);
     }
 
     private Receiver buildTestTimeReceiver(SyncContext syncContext) {
-        final TestTimeReceiver testTimeReceiver = new TestTimeReceiver("TestTimeReceiver", syncContext);
+        final TimeReceiver testTimeReceiver = new TimeReceiver(, syncContext);
         testTimeReceiver.setTime(200);
         testTimeReceiver.setBatchSize(10);
         testTimeReceiver.setMaxSize(1000);

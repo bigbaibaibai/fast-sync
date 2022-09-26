@@ -4,12 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class FieldFilter implements Filter {
-
-    private final Map<String, String> fieldMap;
+public class FieldFilter extends AbstractFilter {
 
     public FieldFilter(Map<String, String> fieldMap) {
-        this.fieldMap = fieldMap;
+        super(fieldMap);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package beup.cc.core.transmitter;
 
 import beup.cc.core.Record;
+import beup.cc.core.writer.Writer;
 
 public interface Transmitter {
 
@@ -9,5 +10,7 @@ public interface Transmitter {
    boolean isSupport(String rowKey);
 
    String getId();
+
+   Writer getWriter();
 
 }

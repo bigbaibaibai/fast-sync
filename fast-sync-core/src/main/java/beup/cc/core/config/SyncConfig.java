@@ -1,25 +1,27 @@
 package beup.cc.core.config;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class SyncConfig {
 
-    private final List<ReceiverConfig> receiverConfigList = new LinkedList<>();
+    private final List<JSONObject> receiverConfigList = new LinkedList<>();
 
-    private final List<TransmitterConfig> transmitterConfigList = new LinkedList<>();
+    private final List<JSONObject> transmitterConfigList = new LinkedList<>();
 
-    private final List<WriterConfig> writerConfigList = new LinkedList<>();
+    private final List<JSONObject> writerConfigList = new LinkedList<>();
 
-    public List<ReceiverConfig> getReceiverConfigList() {
+    public List<JSONObject> getReceiverConfigList() {
         return receiverConfigList;
     }
 
-    public List<TransmitterConfig> getTransmitterConfigList() {
+    public List<JSONObject> getTransmitterConfigList() {
         return transmitterConfigList;
     }
 
-    public List<WriterConfig> getWriterConfigList() {
+    public List<JSONObject> getWriterConfigList() {
         return writerConfigList;
     }
 
