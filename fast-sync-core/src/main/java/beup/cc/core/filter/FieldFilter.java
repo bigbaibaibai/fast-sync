@@ -6,8 +6,10 @@ import java.util.Objects;
 
 public class FieldFilter extends AbstractFilter {
 
+    protected final Map<String, String> fieldMap;
+
     public FieldFilter(Map<String, String> fieldMap) {
-        super(fieldMap);
+        this.fieldMap = fieldMap;
     }
 
     @Override

@@ -3,7 +3,7 @@ package beup.cc.core.plugin;
 import beup.cc.core.Record;
 import beup.cc.core.receiver.Receiver;
 import beup.cc.core.transformer.Transformer;
-import beup.cc.core.transmitter.Transmitter;
+import beup.cc.core.job.SyncJob;
 
 public interface RecordLifeCyclePlugin {
 
@@ -22,7 +22,7 @@ public interface RecordLifeCyclePlugin {
      * @author Bai Xinxiang
      * @since 2022/9/25 23:11
      */
-    default void beforeTransmit(Record record, Transmitter transmitter) {
+    default void beforeTransmit(Record record, SyncJob transmitter) {
     }
 
     /**
@@ -31,7 +31,7 @@ public interface RecordLifeCyclePlugin {
      * @author Bai Xinxiang
      * @since 2022/9/25 23:12
      */
-    default void afterTransmit(Record record, Transmitter transmitter) {
+    default void afterTransmit(Record record, SyncJob transmitter) {
     }
 
     /**

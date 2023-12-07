@@ -4,8 +4,8 @@ import beup.cc.core.filter.FieldFilter;
 import beup.cc.core.receiver.Receiver;
 import beup.cc.core.receiver.TimeReceiver;
 import beup.cc.core.transformer.SimpleTransformer;
-import beup.cc.core.transmitter.DefaultTransmitter;
-import beup.cc.core.transmitter.Transmitter;
+import beup.cc.core.job.DefaultSyncJob;
+import beup.cc.core.job.SyncJob;
 import beup.cc.core.writer.PrintWriter;
 
 import java.time.LocalDateTime;
@@ -37,7 +37,7 @@ public class SyncStarterTest {
 
     }
 
-    private Transmitter buildSimpleTransmitter(PrintWriter printWriter) {
+    private SyncJob buildSimpleTransmitter(PrintWriter printWriter) {
         Map<String, String> fieldMap = new HashMap<>();
         fieldMap.put("name", "name");
         fieldMap.put("age", "age1");
@@ -45,7 +45,7 @@ public class SyncStarterTest {
 
         FieldFilter filter = new FieldFilter(fieldMap);
         SimpleTransformer simpleTransformer = new SimpleTransformer(Collections.singletonList(filter));
-        return new DefaultTransmitter("SimpleTransmitter", "test", simpleTransformer, printWriter);
+        return new DefaultSyncJob("SimpleTransmitter", "test", simpleTransformer, printWriter);
     }
 
     private Receiver buildTestTimeReceiver(SyncContext syncContext) {

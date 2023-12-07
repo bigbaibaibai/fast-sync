@@ -1,6 +1,5 @@
 package beup.cc.core.receiver;
 
-import beup.cc.core.SyncContext;
 import com.alibaba.fastjson.JSONObject;
 
 public class ReceiverFactory {

@@ -1,12 +1,30 @@
 package beup.cc.core.receiver;
 
-import beup.cc.core.LifeCycle;
-import com.alibaba.fastjson.JSONObject;
+import beup.cc.core.Record;
 
-public interface Receiver extends LifeCycle {
+import java.util.Iterator;
 
-    String getId();
+public interface Receiver extends Iterable<Record> {
 
-    JSONObject getParam();
+    /**
+     * 获取数据
+     */
+    Record getDataList();
+
+    boolean isEnd();
+
+    default Iterator<Record> iterator() {
+        return new Iterator<Record>() {
+            @Override
+            public boolean hasNext() {
+                return !isEnd();
+            }
+
+            @Override
+            public Record next() {
+                return getDataList();
+            }
+        };
+    }
 
 }
