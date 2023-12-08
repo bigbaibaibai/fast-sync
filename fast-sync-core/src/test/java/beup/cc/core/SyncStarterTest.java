@@ -1,6 +1,6 @@
 package beup.cc.core;
 
-import beup.cc.core.filter.FieldFilter;
+import beup.cc.core.transformer.filter.FieldMappingFilter;
 import beup.cc.core.receiver.Receiver;
 import beup.cc.core.receiver.TimeReceiver;
 import beup.cc.core.transformer.SimpleTransformer;
@@ -43,7 +43,7 @@ public class SyncStarterTest {
         fieldMap.put("age", "age1");
         fieldMap.put("time", "time");
 
-        FieldFilter filter = new FieldFilter(fieldMap);
+        FieldMappingFilter filter = new FieldMappingFilter(fieldMap);
         SimpleTransformer simpleTransformer = new SimpleTransformer(Collections.singletonList(filter));
         return new DefaultSyncJob("SimpleTransmitter", "test", simpleTransformer, printWriter);
     }

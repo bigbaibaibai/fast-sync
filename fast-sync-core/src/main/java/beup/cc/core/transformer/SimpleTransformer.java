@@ -1,7 +1,7 @@
 package beup.cc.core.transformer;
 
 import beup.cc.core.Record;
-import beup.cc.core.filter.Filter;
+import beup.cc.core.transformer.filter.Filter;
 
 import java.util.Iterator;
 import java.util.List;
@@ -18,19 +18,16 @@ public class SimpleTransformer implements Transformer {
 
     @Override
     public boolean transform(Record record) {
-        if (Objects.isNull(filterList) || filterList.size() == 0) {
+        if (Objects.isNull(filterList) || filterList.isEmpty()) {
             return true;
         }
-        final Iterator<Map<String, Object>> iterator = record.getValues().iterator();
-        while (iterator.hasNext()) {
-            final Map<String, Object> value = iterator.next();
-            for (Filter filter : filterList) {
-                if (!filter.filter(value)) {
-                    iterator.remove();
-                }
+        final Map<String, Object> value = record.getValue();
+        for (Filter filter : filterList) {
+            if (!filter.filter(value)) {
+                return false;
             }
         }
-        return !record.getValues().isEmpty();
+        return true;
     }
 
 }

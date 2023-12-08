@@ -1,4 +1,4 @@
-package beup.cc.core.filter;
+package beup.cc.core.transformer.filter;
 
 public abstract class AbstractFilter implements Filter {
 

@@ -9,7 +9,7 @@ public interface Receiver extends Iterable<Record> {
     /**
      * 获取数据
      */
-    Record getDataList();
+    Record getData();
 
     boolean isEnd();
 
@@ -22,7 +22,7 @@ public interface Receiver extends Iterable<Record> {
 
             @Override
             public Record next() {
-                return getDataList();
+                return getData();
             }
         };
     }

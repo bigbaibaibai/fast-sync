@@ -8,13 +8,14 @@ import java.util.Map;
 @Builder
 public class Record {
 
-    private List<Map<String,Object>> values;
+    private Map<String,Object> value;
 
-    private Record() {
+    public Record(Map<String,Object> value) {
+        this.value = value;
     }
 
-    public List<Map<String,Object>> getValues() {
-        return values;
+    public Map<String,Object> getValue() {
+        return value;
     }
 
 }
